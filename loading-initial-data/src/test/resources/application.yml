@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem://localhost/~/loading-initial-data-test
+  jpa:
+    hibernate:
+      ddl-auto: none
+logging.level:
+  org.hibernate.SQL: debug
+  org.springframework.jdbc: debug
