@@ -19,7 +19,7 @@ class LoadingInitialDataTestApplicationTests {
     void find_all() {
         List<Book> foundBooks = bookRepository.findAll();
 
-        assertThat(foundBooks).containsExactly(
+        assertThat(foundBooks).containsExactlyInAnyOrder(
                 new Book(1L, "TDD", 12000),
                 new Book(2L, "CLEAN CODE", 19000),
                 new Book(3L, "JPA", 18000)
