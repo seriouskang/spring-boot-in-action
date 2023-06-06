@@ -11,7 +11,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
-class LoadingInitialDataTestApplicationTests {
+class BootApplicationTests {
     @Autowired
     private BookRepository bookRepository;
 
