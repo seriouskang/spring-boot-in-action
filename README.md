@@ -5,4 +5,4 @@
 ##### `http-request`: http 정보 확인
 
 ## test
-##### `spring-boot-test-without-spring-application`: `@SpringApplication` 어노테이션 없이 스프링 부트 테스트
+##### `spring-boot-test-without-spring-boot-application`: `@SpringBootApplication` 어노테이션 없이 스프링 부트 테스트
