@@ -2,3 +2,4 @@ rootProject.name = 'spring-boot-in-action'
 
 include 'loading-initial-data'
 include 'http-request'
+include 'spring-boot-test-without-spring-application'
