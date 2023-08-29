@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <link th:href="@{/css/bootstrap.min.css}"
-          href="../css/bootstrap.min.css" rel="stylesheet">
+          href="../../../css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 <div class="container" style="max-width: 1600px">
@@ -11,7 +11,7 @@
         <h2>translate ko → en</h2>
     </div>
 
-    <form th:action="@{en}" th:method="put">
+    <form th:action="@{/message/properties/en}" th:method="put">
         <div class="row">
             <div class="col">
                 <button class="btn btn-primary float-end" type="submit">modify</button>

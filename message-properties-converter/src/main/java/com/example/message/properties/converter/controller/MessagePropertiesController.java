@@ -26,16 +26,16 @@ public class MessagePropertiesController {
         model.addAttribute("enMessage", getMessageOf("message_en.properties"));
         // @TODO: validate
 
-        return "message/list";
+        return "message/properties/list";
     }
 
     @PutMapping("/en")
-    public String modifyEnglishMessage(@RequestParam Map<String, String> modifiedEnMessage) throws IOException {
+    public String modifyEnglishMessage(@RequestParam Map<String, String> modifiedEnMessage) {
         cleanseMessage(modifiedEnMessage);
         log.info("modifiedEnMessage = {}", modifiedEnMessage);
 
         messagePropertiesHandler.saveMessages("message_en.properties", modifiedEnMessage);
-        return "redirect:/message/list";
+        return "redirect:/message/properties";
     }
 
     private void cleanseMessage(Map<String, String> message) {

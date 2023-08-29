@@ -36,7 +36,7 @@ public class MessagePropertiesHandler {
 
     public void saveMessages(String propertiesFilePath, Map<String, String> messages) {
         // @TODO: 경로 수정
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/" + propertiesFilePath, true))) {
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("message-properties-converter/src/main/resources/" + propertiesFilePath, true))) {
             for(Map.Entry<String, String> entry: messages.entrySet()) {
                 writer.write(entry.getKey() + "=" + entry.getValue());
             }
