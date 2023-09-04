@@ -27,11 +27,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="key : ${koMessage.keySet()}">
-                    <td th:text="${key}">key</td>
-                    <td th:text="${koMessage.get(key)}">ko value</td>
-                    <td><input type="text" th:value="${enMessage.get(key)}"
-                               th:name="${key}" /></td>
+                <tr th:each="messageProperty : ${messageProperties}">
+                    <td th:text="${messageProperty.key}">key</td>
+                    <td th:text="${messageProperty.koValue}">ko value</td>
+                    <td><input type="text" th:value="${messageProperty.enValue}"
+                               th:name="${messageProperty.key}" /></td>
                 </tr>
                 </tbody>
             </table>

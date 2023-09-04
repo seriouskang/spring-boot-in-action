@@ -1,6 +1,7 @@
 package com.example.message.properties.converter.controller;
 
 import com.example.message.properties.converter.application.MessagePropertiesService;
+import com.example.message.properties.converter.domain.MessageProperty;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -21,9 +23,7 @@ public class MessagePropertiesController {
 
     @GetMapping
     public String messageList(Model model) {
-        model.addAttribute("koMessage", messagesOf("message.properties"));
-        model.addAttribute("enMessage", messagesOf("message_en.properties"));
-        // @TODO: validate
+        model.addAttribute("messageProperties", messageProperties());
 
         return "message/properties/list";
     }
@@ -33,7 +33,7 @@ public class MessagePropertiesController {
         cleanseMessage(modifiedEnMessage);
         log.info("modifiedEnMessage = {}", modifiedEnMessage);
 
-        messagePropertiesService.saveMessages("message_en.properties", modifiedEnMessage);
+        messagePropertiesService.saveMessages(modifiedEnMessage);
         return "redirect:/message/properties";
     }
 
@@ -41,7 +41,7 @@ public class MessagePropertiesController {
         message.remove("_method");
     }
 
-    private Map<String, String> messagesOf(String propertiesFileName) {
-        return messagePropertiesService.messagesOf(propertiesFileName);
+    private List<MessageProperty> messageProperties() {
+        return messagePropertiesService.messageProperties();
     }
 }
