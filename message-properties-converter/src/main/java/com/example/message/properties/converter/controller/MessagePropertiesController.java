@@ -1,6 +1,6 @@
 package com.example.message.properties.converter.controller;
 
-import com.example.message.properties.converter.io.MessagePropertiesHandler;
+import com.example.message.properties.converter.application.MessagePropertiesService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.io.IOException;
 import java.util.Map;
 
 @Slf4j
@@ -18,12 +17,12 @@ import java.util.Map;
 @RequestMapping("/message/properties")
 @RequiredArgsConstructor
 public class MessagePropertiesController {
-    private final MessagePropertiesHandler messagePropertiesHandler;
+    private final MessagePropertiesService messagePropertiesService;
 
     @GetMapping
     public String messageList(Model model) {
-        model.addAttribute("koMessage", getMessageOf("message.properties"));
-        model.addAttribute("enMessage", getMessageOf("message_en.properties"));
+        model.addAttribute("koMessage", messagesOf("message.properties"));
+        model.addAttribute("enMessage", messagesOf("message_en.properties"));
         // @TODO: validate
 
         return "message/properties/list";
@@ -34,7 +33,7 @@ public class MessagePropertiesController {
         cleanseMessage(modifiedEnMessage);
         log.info("modifiedEnMessage = {}", modifiedEnMessage);
 
-        messagePropertiesHandler.saveMessages("message_en.properties", modifiedEnMessage);
+        messagePropertiesService.saveMessages("message_en.properties", modifiedEnMessage);
         return "redirect:/message/properties";
     }
 
@@ -42,7 +41,7 @@ public class MessagePropertiesController {
         message.remove("_method");
     }
 
-    private Map<String, String> getMessageOf(String propertiesFileName) {
-        return messagePropertiesHandler.getMessages(propertiesFileName);
+    private Map<String, String> messagesOf(String propertiesFileName) {
+        return messagePropertiesService.messagesOf(propertiesFileName);
     }
 }
