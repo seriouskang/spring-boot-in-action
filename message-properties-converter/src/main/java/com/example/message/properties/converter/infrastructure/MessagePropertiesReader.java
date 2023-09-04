@@ -1,4 +1,4 @@
-package com.example.message.properties.converter.io;
+package com.example.message.properties.converter.infrastructure;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -6,17 +6,15 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Slf4j
 @Component
-public class MessagePropertiesHandler {
-    public Map<String, String> getMessages(String propertiesFilePath) {
+public class MessagePropertiesReader {
+    public Map<String, String> messagesOf(String propertiesFilePath) {
         // @TODO: 경로 수정
         try(LineIterator lineIterator = FileUtils.lineIterator(new File("message-properties-converter/src/main/resources/" + propertiesFilePath))) {
             Map<String, String> messages = new LinkedHashMap<>();
@@ -29,17 +27,6 @@ public class MessagePropertiesHandler {
 
             log.info("messages = {}", new ObjectMapper().writeValueAsString(messages));
             return messages;
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public void saveMessages(String propertiesFilePath, Map<String, String> messages) {
-        // @TODO: 경로 수정
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("message-properties-converter/src/main/resources/" + propertiesFilePath))) {
-            for(Map.Entry<String, String> entry: messages.entrySet()) {
-                writer.write(entry.getKey() + "=" + entry.getValue() + System.lineSeparator());
-            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
