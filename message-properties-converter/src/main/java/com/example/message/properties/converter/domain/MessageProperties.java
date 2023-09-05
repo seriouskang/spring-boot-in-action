@@ -18,4 +18,8 @@ public class MessageProperties {
     public void addMessageProperty(MessageProperty messageProperty) {
         messageProperties.add(messageProperty);
     }
+
+    public void validateMessages() {
+        messageProperties.forEach(MessageProperty::validateEnglishMessagePropertyValue);
+    }
 }
