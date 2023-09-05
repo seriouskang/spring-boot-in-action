@@ -1,12 +1,16 @@
 package com.example.message.properties.converter.domain;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
+import javax.validation.constraints.NotBlank;
+
+@Setter
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
+@NoArgsConstructor
 public class MessageProperty {
-    private final String key;
-    private final String koValue;
-    private final String enValue;
+    private String key;
+    private String koValue;
+    @NotBlank
+    private String enValue;
 }
