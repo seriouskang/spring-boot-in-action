@@ -21,22 +21,27 @@ public class MessagePropertiesReader {
 
             while(lineIterator.hasNext()) {
                 String readLine = lineIterator.nextLine();
-                if(!readLine.contains("=")) continue;
+                if(!isMessageProperty(readLine)) continue;
+
                 messages.put(keyOf(readLine), valueOf(readLine));
             }
 
-            log.info("messages = {}", new ObjectMapper().writeValueAsString(messages));
+            log.debug("messages = {}", new ObjectMapper().writeValueAsString(messages));
             return messages;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
+    private boolean isMessageProperty(String readLine) {
+        return !readLine.startsWith("#") && readLine.contains("=");
+    }
+
     private String keyOf(String line) {
-        return line.split("=", -1)[0].trim();
+        return line.substring(0, line.indexOf("="));
     }
 
     private String valueOf(String line) {
-        return line.split("=", -1)[1].trim();
+        return line.substring(line.indexOf("=") + 1);
     }
 }
