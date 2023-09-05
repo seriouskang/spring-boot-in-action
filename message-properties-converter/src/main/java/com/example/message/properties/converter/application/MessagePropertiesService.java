@@ -1,13 +1,12 @@
 package com.example.message.properties.converter.application;
 
+import com.example.message.properties.converter.domain.MessageProperties;
 import com.example.message.properties.converter.domain.MessageProperty;
 import com.example.message.properties.converter.infrastructure.MessagePropertiesReader;
 import com.example.message.properties.converter.infrastructure.MessagePropertiesWriter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -19,13 +18,13 @@ public class MessagePropertiesService {
     private final MessagePropertiesReader messagePropertiesReader;
     private final MessagePropertiesWriter messagePropertiesWriter;
 
-    public List<MessageProperty> messageProperties() {
+    public MessageProperties messageProperties() {
         Map<String, String> koMessageProperties = messagePropertiesReader.messagesOf(MESSAGE_PROPERTIES);
         Map<String, String> enMessageProperties = messagePropertiesReader.messagesOf(MESSAGE_EN_PROPERTIES);
 
-        List<MessageProperty> messageProperties = new ArrayList<>();
+        MessageProperties messageProperties = new MessageProperties();
         koMessageProperties.keySet().forEach(key -> {
-            messageProperties.add(new MessageProperty(key, koMessageProperties.get(key), enMessageProperties.get(key)));
+            messageProperties.addMessageProperty(new MessageProperty(key, koMessageProperties.get(key), enMessageProperties.get(key)));
         });
 
         return messageProperties;
