@@ -30,7 +30,7 @@ public class MessagePropertiesService {
         return messageProperties;
     }
 
-    public void saveMessages(Map<String, String> messages) {
-        messagePropertiesWriter.saveMessages(MESSAGE_EN_PROPERTIES, messages);
+    public void saveMessages(MessageProperties messageProperties) {
+        messagePropertiesWriter.saveMessages(MESSAGE_EN_PROPERTIES, messageProperties);
     }
 }
