@@ -37,4 +37,8 @@ public class MessagePropertiesService {
     public void validateMessages(MessageProperties messageProperties) {
         messageProperties.validateMessages();
     }
+
+    public boolean containsError(MessageProperties messageProperties) {
+        return messageProperties.containsError();
+    }
 }

@@ -25,5 +25,11 @@ public class MessageProperty {
             errorMessage = EN_PROPERTY_CANNOT_BLANK;
             return;
         }
+
+        // @TODO: 검증 로직 추가
+    }
+
+    public boolean containsErrorMessage() {
+        return errorMessage != null;
     }
 }

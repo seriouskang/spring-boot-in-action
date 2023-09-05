@@ -22,4 +22,9 @@ public class MessageProperties {
     public void validateMessages() {
         messageProperties.forEach(MessageProperty::validateEnglishMessagePropertyValue);
     }
+
+    public boolean containsError() {
+        return messageProperties.stream()
+                .anyMatch(MessageProperty::containsErrorMessage);
+    }
 }
