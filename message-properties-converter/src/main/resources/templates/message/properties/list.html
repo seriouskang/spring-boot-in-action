@@ -11,7 +11,7 @@
         <h2>translate ko → en</h2>
     </div>
 
-    <form th:action="@{/message/properties/en}" th:method="put">
+    <form th:action="@{/message/properties/en}" th:method="put" th:object="${messageProperties}">
         <div class="row">
             <div class="col">
                 <button class="btn btn-primary float-end" type="submit">modify</button>
@@ -27,11 +27,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="messageProperty : ${messageProperties}">
-                    <td th:text="${messageProperty.key}">key</td>
-                    <td th:text="${messageProperty.koValue}">ko value</td>
-                    <td><input type="text" th:value="${messageProperty.enValue}"
-                               th:name="${messageProperty.key}" /></td>
+                <tr th:each="mp : ${messageProperties.messageProperties}">
+                    <td><input type="text" th:value="${messageProperties.messageProperties[__${mpStat.index}__].key}"
+                                           th:field="${messageProperties.messageProperties[__${mpStat.index}__].key}" readonly/></td>
+                    <td><input type="text" th:value="${messageProperties.messageProperties[__${mpStat.index}__].koValue}"
+                                           th:field="${messageProperties.messageProperties[__${mpStat.index}__].koValue}" readonly/></td>
+                    <td><input type="text" th:value="${messageProperties.messageProperties[__${mpStat.index}__].enValue}"
+                                           th:field="${messageProperties.messageProperties[__${mpStat.index}__].enValue}"/></td>
                 </tr>
                 </tbody>
             </table>
