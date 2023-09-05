@@ -33,4 +33,8 @@ public class MessagePropertiesService {
     public void saveMessages(MessageProperties messageProperties) {
         messagePropertiesWriter.saveMessages(MESSAGE_EN_PROPERTIES, messageProperties);
     }
+
+    public void validateMessages(MessageProperties messageProperties) {
+        messageProperties.validateMessages();
+    }
 }
