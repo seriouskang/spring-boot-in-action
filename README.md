@@ -9,3 +9,4 @@
 
 ## event
 ##### `context-closed-event`: `ApplicationContext`가 닫힐 때 발생하는 이벤트
+##### `graceful shutdown`: graceful shutdown 활성화
