@@ -1,5 +1,9 @@
 server:
-  port: 8080
+  port: 18081
+
+spring:
+  application:
+    name: upstream-service
 
 priceClient:
-  baseUrl: http://localhost:8081
+  baseUrl: http://downstream-service:18080
