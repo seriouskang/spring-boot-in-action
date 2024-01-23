@@ -16,29 +16,29 @@ public class PriceRepository {
 
     @PostConstruct
     private void setupRepo() {
-        setupProduct(100001L, 12.5, 2.5);
-        setupProduct(100002L, 10.5, 2.1);
-        setupProduct(100003L, 18.5, 2.0);
-        setupProduct(100004L, 18.5, 2.0);
+        setupPrice(100001L, 12.5, 2.5);
+        setupPrice(100002L, 10.5, 2.1);
+        setupPrice(100003L, 18.5, 2.0);
+        setupPrice(100004L, 18.5, 2.0);
     }
 
-    private void setupProduct(long id, double amount, double discount) {
+    private void setupPrice(long id, double amount, double discount) {
         priceMap.put(id, new Price(id, amount, discount));
     }
 
-    public Price findPriceById(Long productId) {
-        log.info("find price from price repo with product id = {}", productId);
-        if(!contains(productId)) {
+    public Price findPriceById(Long id) {
+        log.info("find price from price repo with product id = {}", id);
+        if(!contains(id)) {
             throw new PriceNotFoundException();
         }
 
-        return priceMap.get(productId);
+        return priceMap.get(id);
     }
 
-    private boolean contains(Long productId) {
-        boolean isContain = priceMap.containsKey(productId);
+    private boolean contains(Long id) {
+        boolean isContain = priceMap.containsKey(id);
         if(!isContain) {
-            log.warn("price not found for product id = {}", productId);
+            log.warn("price not found for product id = {}", id);
         }
 
         return isContain;
