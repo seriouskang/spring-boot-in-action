@@ -28,11 +28,14 @@ public class PriceRepository {
 
     public Price findPriceById(Long id) {
         log.info("find price from price repo with product id = {}", id);
-        if(!contains(id)) {
-            throw new PriceNotFoundException();
-        }
-
+        validateId(id);
         return priceMap.get(id);
+    }
+
+    private void validateId(Long id) {
+        if(!contains(id)) {
+            throw new PriceNotFoundException("price not found = " + id);
+        }
     }
 
     private boolean contains(Long id) {
