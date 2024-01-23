@@ -1,0 +1,5 @@
+server:
+  port: 8081
+
+priceClient:
+  baseUrl: http://localhost:8080
