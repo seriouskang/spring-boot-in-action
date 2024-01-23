@@ -34,16 +34,12 @@ public class PriceRepository {
 
     private void validateId(Long id) {
         if(!contains(id)) {
+            log.error("price not found = {}", id);
             throw new PriceNotFoundException("price not found = " + id);
         }
     }
 
     private boolean contains(Long id) {
-        boolean isContain = priceMap.containsKey(id);
-        if(!isContain) {
-            log.warn("price not found for product id = {}", id);
-        }
-
-        return isContain;
+        return priceMap.containsKey(id);
     }
 }

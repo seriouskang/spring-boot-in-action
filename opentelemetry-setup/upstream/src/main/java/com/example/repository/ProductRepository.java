@@ -47,16 +47,12 @@ public class ProductRepository {
 
     private void validateId(Long id) {
         if(!contains(id)) {
+            log.error("product not found = {}", id);
             throw new ProductNotFoundException("product not found = " + id);
         }
     }
 
     private boolean contains(Long id) {
-        boolean isContain = productMap.containsKey(id);
-        if(!isContain) {
-            log.warn("product not found for product id = {}", id);
-        }
-
-        return isContain;
+        return productMap.containsKey(id);
     }
 }
