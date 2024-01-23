@@ -19,8 +19,6 @@ public class ProductController {
     @GetMapping(path = "/{id}")
     public Product product(@PathVariable long id) {
         log.info("getting product and price details with product id = {}", id);
-        Product product = productRepository.findProductById(id);
-
-        return product;
+        return productRepository.findProductById(id);
     }
 }

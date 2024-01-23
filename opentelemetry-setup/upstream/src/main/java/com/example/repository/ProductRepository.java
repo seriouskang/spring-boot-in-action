@@ -34,10 +34,7 @@ public class ProductRepository {
 
     public Product findProductById(Long id) {
         log.info("get product from product repo with product id = {}", id);
-
-        if(!contains(id)) {
-            throw new ProductNotFoundException();
-        }
+        validateId(id);
 
         Product product = productMap.get(id);
         product.setPrice(findPriceById(id));
@@ -46,6 +43,12 @@ public class ProductRepository {
 
     private Price findPriceById(Long id) {
         return priceClient.price(id);
+    }
+
+    private void validateId(Long id) {
+        if(!contains(id)) {
+            throw new ProductNotFoundException("product not found = " + id);
+        }
     }
 
     private boolean contains(Long id) {
