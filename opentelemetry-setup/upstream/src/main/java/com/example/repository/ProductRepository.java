@@ -1,7 +1,10 @@
 package com.example.repository;
 
+import com.example.api.client.PriceClient;
 import com.example.exception.ProductNotFoundException;
+import com.example.model.Price;
 import com.example.model.Product;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
@@ -11,7 +14,9 @@ import java.util.Map;
 
 @Slf4j
 @Repository
+@RequiredArgsConstructor
 public class ProductRepository {
+    private final PriceClient priceClient;
     private final Map<Long, Product> productMap = new HashMap<>();
 
     @PostConstruct
@@ -34,7 +39,13 @@ public class ProductRepository {
             throw new ProductNotFoundException();
         }
 
-        return productMap.get(id);
+        Product product = productMap.get(id);
+        product.setPrice(findPriceById(id));
+        return product;
+    }
+
+    private Price findPriceById(Long id) {
+        return priceClient.price(id);
     }
 
     private boolean contains(Long id) {
