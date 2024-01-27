@@ -1,5 +1,5 @@
 server:
-  port: 18080
+  port: 18081
 
 spring:
   application:
@@ -11,3 +11,6 @@ spring:
       exporter:
         otlp:
           endpoint: http://collector:4317
+
+priceClient:
+  baseUrl: http://upstream-service:18080

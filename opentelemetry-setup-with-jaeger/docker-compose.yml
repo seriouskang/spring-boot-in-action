@@ -1,14 +1,14 @@
 version: "3.3"
 
 services:
-  downstream-service:
-    platform: linux/amd64
-    build: downstream/
-    ports:
-      - "18080:18080"
   upstream-service:
     platform: linux/amd64
     build: upstream/
+    ports:
+      - "18080:18080"
+  downstream-service:
+    platform: linux/amd64
+    build: downstream/
     ports:
       - "18081:18081"
   collector:
