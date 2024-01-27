@@ -10,3 +10,6 @@
 ## event
 ##### `context-closed-event`: `ApplicationContext`가 닫힐 때 발생하는 이벤트
 ##### `graceful shutdown`: graceful shutdown 활성화
+
+## observability
+##### `opentelemetry-setup-with-jaeger`: `opentelemetry`/`jaeger`를 활용한 분산 추적(distributed tracing)
