@@ -8,8 +8,6 @@ processors:
   batch:
 
 exporters:
-  logging:
-    loglevel: debug
   jaeger:
     endpoint: jaeger-service:14250
     tls:
@@ -20,4 +18,4 @@ service:
     traces:
       receivers:  [ otlp ]
       processors: [ batch ]
-      exporters:  [ logging, jaeger ]
+      exporters:  [ jaeger ]
