@@ -2,9 +2,12 @@ package com.example.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 @Slf4j
 @RestController
@@ -37,5 +40,15 @@ public class RequestController {
         log.info("Result : IP Address : {}", ip);
 
         return ip;
+    }
+
+    @GetMapping("/hostname")
+    public String hostName() throws UnknownHostException {
+        return InetAddress.getLocalHost().getHostName();
+    }
+
+    @PostMapping("/hostname")
+    public String postHostName() throws UnknownHostException {
+        return InetAddress.getLocalHost().getHostName();
     }
 }
