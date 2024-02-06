@@ -2,12 +2,14 @@ package com.example.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.concurrent.ThreadLocalRandom;
 
 @Slf4j
 @RestController
@@ -50,5 +52,13 @@ public class RequestController {
     @PostMapping("/hostname")
     public String postHostName() throws UnknownHostException {
         return InetAddress.getLocalHost().getHostName();
+    }
+
+    @PostMapping("/sleep/{max}")
+    public String sleep(@PathVariable("max") Long max) throws InterruptedException {
+        long randomSleep = ThreadLocalRandom.current().nextLong(max);
+        Thread.sleep(randomSleep);
+
+        return String.format("Sleep: %d", randomSleep);
     }
 }
