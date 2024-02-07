@@ -53,12 +53,4 @@ public class RequestController {
     public String postHostName() throws UnknownHostException {
         return InetAddress.getLocalHost().getHostName();
     }
-
-    @PostMapping("/sleep/{max}")
-    public String sleep(@PathVariable("max") Long max) throws InterruptedException {
-        long randomSleep = ThreadLocalRandom.current().nextLong(max);
-        Thread.sleep(randomSleep);
-
-        return String.format("Sleep: %d", randomSleep);
-    }
 }
