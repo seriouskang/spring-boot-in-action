@@ -13,3 +13,6 @@
 
 ## observability
 ##### `opentelemetry-setup-with-jaeger`: `opentelemetry`/`jaeger`를 활용한 분산 추적(distributed tracing)
+
+## security
+##### `https-api`: SSL 적용
