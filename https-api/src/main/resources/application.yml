@@ -1,8 +1,17 @@
 server:
   port: 8443
+# p12
+#  ssl:
+#    enabled: true
+#    key-store: https-api/keystore.p12
+#    key-store-password: # fill blank
+#    key-store-type: PKCS12
+#    key-alias: bns-ssl
+
+# jks
   ssl:
-    enabled: true
-    key-store: https-api/keystore.p12
+    key-store: https-api/converted.jks
     key-store-password: # fill blank
-    key-store-type: PKCS12
-    key-alias: bns-ssl
+    key-store-type: JKS
+    key-alias: 1
+    key-password: # fill blank
