@@ -13,7 +13,7 @@
 
 ## observability
 ##### `opentelemetry-setup-with-jaeger`: `opentelemetry`/`jaeger`를 활용한 분산 추적(distributed tracing)
-##### `actuator`: `actuator` 활용
+##### `monitoring`: `actuator`, `prometheus` 등 활용
 
 ## security
 ##### `https-api`: SSL 적용
