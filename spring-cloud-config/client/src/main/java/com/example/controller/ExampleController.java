@@ -11,8 +11,16 @@ public class ExampleController {
     @Value("${test.key1}")
     private String value1;
 
+    @Value("${test.key2}")
+    private String value2;
+
     @GetMapping("/value1")
     public String value1() {
         return value1;
+    }
+
+    @GetMapping("/value2")
+    public String value2() {
+        return value2;
     }
 }
