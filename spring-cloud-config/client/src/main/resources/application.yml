@@ -1,0 +1,17 @@
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    env:
+      show-values: ALWAYS
+
+spring:
+  application:
+    name: tutorial
+  config:
+    import: "optional:configserver:http://192.168.64.94:8080"
+
+test:
+  key1: local-value1
