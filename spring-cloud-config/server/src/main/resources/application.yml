@@ -3,13 +3,22 @@ management:
     web:
       exposure:
         include: "*"
+  endpoint:
+    env:
+      show-values: ALWAYS
 
 spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/seriouskang/spring-cloud-config-tutorial-repo
+#        git:
+#          uri: https://github.com/seriouskang/spring-cloud-config-tutorial-repo
+        native:
+          search-locations: classpath:config/
 
 #logging:
 #  level:
