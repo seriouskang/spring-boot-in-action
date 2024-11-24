@@ -17,3 +17,6 @@
 
 ## security
 ##### `https-api`: SSL 적용
+
+## MSA
+##### `spring-cloud-config-server`, `spring-cloud-config-client`: spring-cloud-config tutorial
