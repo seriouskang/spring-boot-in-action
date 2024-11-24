@@ -10,3 +10,7 @@ spring:
       server:
         git:
           uri: https://github.com/seriouskang/spring-cloud-config-tutorial-repo
+
+#logging:
+#  level:
+#    root: DEBUG
