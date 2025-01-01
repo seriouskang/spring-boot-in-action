@@ -12,4 +12,5 @@ import java.util.List;
 public class RedisProperties {
     private final int maxRedirects;
     private final List<String> nodes;
+    private final String password;
 }

@@ -18,6 +18,7 @@ public class RedisConfig {
     public RedisConnectionFactory redisConnectionFactory() {
         RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration(redisProperties.getNodes());
         redisClusterConfiguration.setMaxRedirects(redisProperties.getMaxRedirects());
+        redisClusterConfiguration.setPassword(redisProperties.getPassword());
 
         return new LettuceConnectionFactory(redisClusterConfiguration);
     }

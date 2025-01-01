@@ -7,3 +7,4 @@ spring:
           - 192.168.64.104:6379
           - 192.168.64.105:6379
         max-redirects: 3
+        password: foobared
