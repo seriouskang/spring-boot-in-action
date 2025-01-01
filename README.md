@@ -20,3 +20,6 @@
 
 ## MSA
 ##### `spring-cloud-config`: spring-cloud-config tutorial
+
+## redis
+##### `cluster-client`: redis cluster 연동
