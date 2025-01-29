@@ -13,6 +13,7 @@
 
 ## observability
 ##### `opentelemetry-setup-with-jaeger`: `opentelemetry`/`jaeger`를 활용한 분산 추적(distributed tracing)
+##### `opentelemetry-sample-app`: `opentelemetry` 테스트용 어플리케이션
 ##### `monitoring`: `actuator`, `prometheus` 등 활용
 
 ## security
