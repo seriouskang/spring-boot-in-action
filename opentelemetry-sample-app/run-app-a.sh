@@ -9,8 +9,8 @@ fi
 
 podman run --rm -d --name app-a \
            -p 8080:8080 \
-           -e TARGET_ONE_HOST=localhost:18080 \
-           -e TARGET_TWO_HOST=localhost:28080 \
+           -e TARGET_ONE_HOST=192.168.64.129:18080 \
+           -e TARGET_TWO_HOST=192.168.64.129:28080 \
            -e MANAGEMENT_METRICS_TAGS_APPLICATION=app-a \
            -e OTEL_METRICS_EXPORTER=none \
            -e OTEL_LOGS_EXPORTER=otlp \
