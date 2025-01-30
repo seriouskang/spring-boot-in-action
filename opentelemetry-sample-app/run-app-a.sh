@@ -1,5 +1,12 @@
 #!/bin/bash
 
+found_cont=$(podman ps --noheading --filter name=app-a --format "{{.Names}}")
+if [ "${found_cont}" ]
+then
+  echo "stop an existing container: ${found_cont}"
+  podman stop ${found_cont}
+fi
+
 podman run --rm -d --name app-a \
            -p 8080:8080 \
            -e TARGET_ONE_HOST=localhost:18080 \
