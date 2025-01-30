@@ -1,6 +1,6 @@
 #!/bin/bash
 
-found_cont=$(podman ps --noheading --filter name=app-a --format "{{.Names}}")
+found_cont=$(podman ps --noheading --filter name=app-b --format "{{.Names}}")
 if [ "${found_cont}" ]
 then
   echo "stop an existing container: ${found_cont}"
