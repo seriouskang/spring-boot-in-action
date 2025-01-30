@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
