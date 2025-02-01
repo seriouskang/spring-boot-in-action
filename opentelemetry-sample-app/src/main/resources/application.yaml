@@ -16,8 +16,8 @@ management:
       maximum-expected-value:
         http.server.requests: 1000ms
 
-logging:
-  pattern:
-    level: "trace_id=%mdc{trace_id} span_id=%mdc{span_id} trace_flags=%mdc{trace_flags} %p"
-  level:
-    com.example.demo: DEBUG
+#logging:
+#  pattern:
+#    level: "trace_id=%mdc{trace_id} span_id=%mdc{span_id} trace_flags=%mdc{trace_flags} %p"
+#  level:
+#    com.example.demo: DEBUG
