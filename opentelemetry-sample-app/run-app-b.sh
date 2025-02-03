@@ -18,5 +18,5 @@ podman run --rm -d --name app-b \
            -e OTEL_EXPORTER_OTLP_LOGS_ENDPOINT=http://192.168.64.128:4318/v1/logs \
            -e OTEL_EXPORTER_OTLP_LOGS_PROTOCOL=http/protobuf \
            -e OTEL_LOGS_EXPORTER=otlp \
-           -e OTEL_RESOURCE_ATTRIBUTES=service_name=app-b \
+           -e OTEL_RESOURCE_ATTRIBUTES=service.name=app-b \
            localhost/opentelemetry-sample-app:latest
