@@ -24,3 +24,6 @@
 
 ## redis
 ##### `cluster-client`: redis cluster 연동
+
+## connection
+##### `connection-check`: 통신 가능 여부 테스트
