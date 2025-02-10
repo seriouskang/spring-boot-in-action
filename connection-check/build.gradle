@@ -1,0 +1,30 @@
+plugins {
+	id("org.springframework.boot") version "2.7.18"
+	id("io.spring.dependency-management") version "1.1.0"
+	id("java")
+}
+
+group = "com.example"
+version = "0.0.1-SNAPSHOT"
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+	mavenCentral()
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("commons-net:commons-net:3.11.1")
+
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+}
+
