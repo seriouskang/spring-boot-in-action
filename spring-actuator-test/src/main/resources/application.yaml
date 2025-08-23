@@ -1,12 +1,29 @@
 spring:
   datasource:
-    driver-class-name: org.h2.Driver
-    url: 'jdbc:h2:tcp://192.168.64.146:9092/~/h2/data/test'
-    username: sa
-    password:
-  datasource.hikari:
-    connection-timeout: 5000
-    maximum-pool-size: 5
+    primary:
+      url: 'jdbc:h2:tcp://192.168.64.146:9092/~/h2/data/primary'
+      driver-class-name: org.h2.Driver
+      username: sa
+      password:
+      hikari:
+        minimum-idle: 10
+        maximum-pool-size: 10
+        idle-timeout: 20000
+        connection-timeout: 10000
+        pool-name: primaryPool
+        connection-test-query: SELECT 1
+    secondary:
+      url: 'jdbc:h2:tcp://192.168.64.146:9093/~/h2/data/secondary'
+      driver-class-name: org.h2.Driver
+      username: sa
+      password:
+      hikari:
+        minimum-idle: 10
+        maximum-pool-size: 10
+        idle-timeout: 20000
+        connection-timeout: 10000
+        pool-name: secondaryPool
+        connection-test-query: SELECT 1
 
 management:
   endpoint:
