@@ -8,10 +8,6 @@ server:
     key-store-type: PKCS12
     key-alias: https-test
 
-http:
-  port: 8080
-
-
 # jks
 #  ssl:
 #    key-store: https-api/converted.jks
